@@ -1,0 +1,29 @@
+mcp:
+  enabled: false
+  servers:
+    filesystem:
+      enabled: false
+      command: npx
+      args:
+        - -y
+        - "@modelcontextprotocol/server-filesystem"
+        - "${SUPER_AGENT_WORKSPACE_DIR}"
+      env: {}
+      auto_start: false
+      timeout_ms: 30000
+      permissions:
+        network: false
+        filesystem: true
+
+
+    remote_example:
+      enabled: false
+      transport: https
+      url: https://mcp.example.com/mcp
+      headers:
+        Authorization: Bearer replace-with-your-token
+      auto_start: false
+      timeout_ms: 30000
+      permissions:
+        network: true
+        filesystem: false

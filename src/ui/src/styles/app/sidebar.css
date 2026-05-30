@@ -1,0 +1,442 @@
+
+.progress-line,
+.pending-response,
+.thinking-hidden-note {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  color: var(--muted-foreground);
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.thinking-timeline,
+.tool-timeline {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+
+.tool-group-summary {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--foreground);
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.tool-group-summary:hover {
+  background: var(--muted);
+}
+
+.tool-glyph,
+.chevron {
+  flex: 0 0 auto;
+  color: var(--muted-foreground);
+  transition: transform 140ms ease;
+}
+
+.tool-glyph.open,
+.chevron.open {
+  transform: rotate(90deg);
+}
+
+.thinking-raw-content,
+.approval-input,
+.tool-output-scroll,
+.tool-output-preview pre,
+.tool-params pre {
+  overflow: auto;
+  border-radius: 6px;
+  background: var(--code);
+  color: var(--code-foreground);
+  font-family:
+    "Cascadia Code",
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.thinking-raw-content {
+  max-height: 300px;
+  margin: 0;
+  padding: 12px;
+  white-space: pre-wrap;
+}
+
+.empty-chat {
+  display: grid;
+  min-height: 0;
+  place-items: center;
+  padding: 34px;
+}
+
+.empty-chat-content {
+  display: flex;
+  width: min(660px, 100%);
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  padding: 34px;
+}
+
+.empty-chat-content h1 {
+  color: var(--foreground);
+  font-size: 30px;
+  font-weight: 790;
+  line-height: 1.1;
+}
+
+.empty-chat-content p {
+  max-width: 520px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.composer {
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--background) 82%, var(--card));
+  padding: 14px 22px 18px;
+}
+
+.composer-box {
+  display: flex;
+  width: min(960px, 100%);
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  padding: 10px;
+}
+
+.attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.attachment-chip {
+  display: inline-flex;
+  max-width: 240px;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--muted);
+  color: var(--foreground);
+  padding: 5px 9px;
+  font-size: 12px;
+}
+
+.attachment-chip:hover {
+  background: var(--accent);
+}
+
+.attachment-size {
+  color: var(--muted-foreground);
+}
+
+.composer-input-wrap {
+  position: relative;
+}
+
+.composer-project-context {
+  display: inline-flex;
+  max-width: min(100%, 360px);
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  padding: 5px 8px;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.composer-project-context:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.composer-project-context span {
+  flex: 0 0 auto;
+  color: var(--muted-foreground);
+  font-weight: 650;
+}
+
+.composer-project-context strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--foreground);
+  font-weight: 760;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.composer-project-context.no-project strong {
+  color: var(--muted-foreground);
+  font-weight: 650;
+}
+
+.composer-input-wrap textarea {
+  width: 100%;
+  min-height: 94px;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  color: var(--foreground);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.composer-input-wrap textarea:focus-visible {
+  outline-offset: -2px;
+}
+
+.active-command {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  padding: 5px 9px;
+  font-size: 12px;
+}
+
+.active-command span {
+  color: var(--foreground);
+  font-weight: 780;
+}
+
+.active-command strong {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.command-menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  left: 0;
+  display: flex;
+  max-height: 280px;
+  flex-direction: column;
+  gap: 4px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--popover);
+  box-shadow: var(--shadow-md);
+  padding: 6px;
+}
+
+.command-menu-item {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.5fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--popover-foreground);
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.command-menu-item:hover,
+.command-menu-item.active {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.command-menu-label {
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.command-menu-description,
+.command-menu-usage {
+  overflow: hidden;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.composer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.composer-controls-left,
+.composer-controls-right {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.composer-controls-left {
+  flex-wrap: wrap;
+}
+
+.composer-select {
+  max-width: 280px;
+  background: var(--surface-raised);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.composer-permission-select {
+  width: 150px;
+}
+
+.attach-button {
+  min-width: 76px;
+}
+
+.workspace-panel {
+  display: grid;
+  min-width: 0;
+  height: 100vh;
+  grid-template-rows: auto minmax(260px, 1fr) auto auto auto;
+  overflow: hidden auto;
+  border-left: 1px solid var(--border);
+  background: var(--surface-sunken);
+}
+
+.workspace-topbar {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+  padding: 12px;
+}
+
+.workspace-status-line {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 680;
+}
+
+.workspace-url-text {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--foreground);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-stage {
+  display: grid;
+  min-height: 320px;
+  place-items: center;
+  border-bottom: 1px solid var(--border);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--foreground) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(0deg, color-mix(in srgb, var(--foreground) 6%, transparent) 1px, transparent 1px),
+    var(--surface-sunken);
+  background-size: 22px 22px;
+  padding: 14px;
+}
+
+.workspace-stage-image {
+  max-width: 100%;
+  max-height: calc(100vh - 280px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  object-fit: contain;
+}
+
+.workspace-stage-empty {
+  display: flex;
+  width: min(320px, 100%);
+  flex-direction: column;
+  gap: 8px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--card) 72%, transparent);
+  padding: 18px;
+  text-align: center;
+}
+
+.workspace-stage-empty span {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.workspace-stage-empty strong {
+  overflow: hidden;
+  color: var(--foreground);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-details {
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+.workspace-details summary {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0 14px;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 730;
+}
+
+.workspace-details summary:hover {
+  background: var(--muted);
+}
+
+.action-log {
+  display: flex;
+  max-height: 220px;
+  flex-direction: column;
+  gap: 6px;
+  overflow: auto;
+  padding: 0 14px 14px;
+}

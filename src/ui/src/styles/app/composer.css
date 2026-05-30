@@ -1,0 +1,445 @@
+
+.tool-command {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--muted);
+  color: var(--foreground);
+  padding: 7px 8px;
+  font-family:
+    "Cascadia Code",
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tool-message {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.tool-params summary {
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tool-params pre,
+.tool-output-preview pre,
+.tool-output-scroll {
+  margin: 7px 0 0;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+.tool-output-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tool-field-label {
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.tool-output-scroll {
+  max-height: 300px;
+}
+
+.markdown-content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  color: inherit;
+  font-weight: 760;
+  line-height: 1.25;
+}
+
+.markdown-content h1 {
+  font-size: 20px;
+}
+
+.markdown-content h2 {
+  font-size: 17px;
+}
+
+.markdown-content h3 {
+  font-size: 15px;
+}
+
+.markdown-content p,
+.markdown-content li,
+.markdown-content blockquote {
+  color: inherit;
+  line-height: 1.58;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.markdown-content blockquote {
+  margin: 0;
+  border-left: 3px solid var(--ring);
+  background: var(--muted);
+  padding: 8px 10px;
+}
+
+.markdown-content code {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--muted);
+  padding: 1px 5px;
+  font-family:
+    "Cascadia Code",
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+  font-size: 0.92em;
+}
+
+.markdown-content pre {
+  overflow: auto;
+  border-radius: var(--radius);
+  background: var(--code);
+  color: var(--code-foreground);
+  padding: 12px;
+}
+
+.markdown-content pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.markdown-content a {
+  color: var(--ring);
+  font-weight: 650;
+}
+
+.markdown-table-scroll {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.markdown-table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.markdown-table-scroll th,
+.markdown-table-scroll td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.markdown-table-scroll th {
+  background: var(--muted);
+  font-weight: 760;
+}
+
+@media (max-width: 1220px) {
+  .app-shell.workspace-open {
+    grid-template-columns: 260px minmax(320px, 1fr) minmax(320px, 0.8fr);
+  }
+
+  .app-shell.sidebar-collapsed.workspace-open {
+    grid-template-columns: 72px minmax(320px, 1fr) minmax(320px, 0.8fr);
+  }
+
+  .settings-layout,
+  .library-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+}
+
+.selected-skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.selected-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid color-mix(in srgb, var(--ring) 38%, var(--border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ring) 10%, var(--card));
+  color: var(--foreground);
+  padding: 5px 9px;
+  font-size: 12px;
+}
+
+.selected-skill-chip span {
+  color: var(--ring);
+  font-weight: 820;
+}
+
+.selected-skill-chip strong {
+  font-weight: 760;
+}
+
+.skill-menu .command-menu-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-menu .command-menu-label em {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--success) 13%, transparent);
+  color: var(--success);
+  padding: 2px 6px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.skills-workbench {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: minmax(220px, 0.32fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.skills-list {
+  display: flex;
+  min-height: 0;
+  max-height: calc(100vh - 220px);
+  flex-direction: column;
+  gap: 6px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  padding: 8px;
+}
+
+.skill-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--foreground);
+  padding: 10px;
+  text-align: left;
+}
+
+.skill-list-item:hover,
+.skill-list-item.active {
+  border-color: color-mix(in srgb, var(--ring) 30%, var(--border));
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.skill-list-item span {
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.skill-list-item small {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.skill-detail-card {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  padding: 16px;
+}
+
+.skill-detail-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+}
+
+.skill-detail-toolbar h2 {
+  margin-top: 3px;
+  color: var(--foreground);
+  font-size: 20px;
+  font-weight: 780;
+  line-height: 1.2;
+}
+
+.skill-detail-toolbar p:not(.eyebrow) {
+  margin-top: 6px;
+  max-width: 760px;
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.skill-actions {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow,
+.section-kicker {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.skill-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.skill-meta-grid div {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  padding: 10px;
+}
+
+.skill-meta-grid dt {
+  color: var(--muted-foreground);
+  font-size: 11px;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.skill-meta-grid dd {
+  margin: 5px 0 0;
+  overflow-wrap: anywhere;
+  color: var(--foreground);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.skill-markdown-shell {
+  max-height: calc(100vh - 430px);
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 18px;
+}
+
+.skill-edit-dialog {
+  display: flex;
+  width: min(760px, 100%);
+  max-height: calc(100vh - 48px);
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 4px);
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: var(--shadow-md);
+  padding: 18px;
+}
+
+.skill-edit-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.skill-edit-heading h2 {
+  color: var(--foreground);
+  font-size: 18px;
+  font-weight: 780;
+}
+
+.skill-edit-heading p {
+  margin-top: 4px;
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--foreground);
+  padding: 10px 11px;
+  outline: none;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.inline-field {
+  flex-direction: row;
+  align-items: center;
+}
+
+.inline-field input {
+  width: auto;
+}
+
+.grow-field {
+  min-height: 260px;
+  flex: 1;
+}
+
+.skill-instructions-editor {
+  min-height: 260px;
+  flex: 1;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  line-height: 1.5;
+  resize: none;
+}
